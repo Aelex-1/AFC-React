@@ -29,6 +29,19 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com' },
     ],
+    links: [
+
+      {
+        rel: "preload",
+        href: "./assets/images/fc.webp",
+        as: "image",
+        fetchpriority: "high",
+      },
+      {
+        rel:"stylesheet",
+        href: "./styles.css"
+      },
+    ],
   }),
   component: Home
 })
@@ -51,21 +64,25 @@ function Home() {
 
           {slidesImages.map((slide) => (
             <SwiperSlide key={slide.alt} className=''>
-              <img
-                src={slide.imageWide}
-                alt={slide.alt}
-                className='w-full object-cover hidden md:block'
-              />
-              <img
-                src={slide.imageMobile}
-                alt={slide.alt}
-                className='w-full object-cover block md:hidden'
-              />
+              <picture>
+                <source
+                  media='(max-width: 767px)'
+                  srcSet={slide.imageMobile}
+                  width={800}
+                  height={533}
+                />
+                <img
+                  src={slide.imageWide}
+                  alt={slide.alt}
+                  loading='eager'
+                  fetchPriority='high'
+                  width={1920}
+                  height={480}
+                  className='w-full object-cover'
+                />
+              </picture>
             </SwiperSlide>
           ))}
-
-
-
         </Swiper>
       </section>
 
@@ -76,6 +93,10 @@ function Home() {
             <img
               src="./assets/images/fc.webp"
               alt="Image of AFC Fried Chicken"
+              width={451}
+              height={459}
+              loading='eager'
+              fetchPriority='high'
             />
           </div>
 
@@ -115,10 +136,13 @@ function Home() {
 
           <div className='split-media'>
             <img
-              className="rounded-xl"
               src="./assets/images/about-us.webp"
+              alt="Image of AFC Home Opening"
+              width={850}
+              height={610}
               loading="lazy"
-              alt="Image of AFC Home Opening" />
+              className="rounded-xl"
+            />
 
           </div>
 
@@ -135,7 +159,7 @@ function Home() {
                 to="/about"
                 className="button-secondary text-sm px-3 py-1.5 md:px-4 md:py-2"
               >
-                Learn More
+                Learn Our Story
               </Link>
             </button>
 
@@ -149,8 +173,10 @@ function Home() {
           <div className='split-media'>
             <img
               src="./assets/images/franchise-home.webp"
-              loading="lazy"
               alt="Image of AFC Ffranchise"
+              width={1292}
+              height={761}
+              loading="lazy"
             />
           </div>
 
@@ -224,7 +250,14 @@ function Home() {
                   className='group'
                 >
                   <div className='text-start min-h-full md:min-h-100 bg-white rounded-lg shadow-md '>
-                    <img className='w-full h-60 object-cover rounded-t-lg sm:h-60' src={blogs.image} alt={blogs.alt} />
+                    <img
+                      src={blogs.image}
+                      alt={blogs.alt}
+                      width={370}
+                      height={240}
+                      loading='lazy'
+                      className='w-full h-60 object-cover rounded-t-lg sm:h-60'
+                    />
                     <h3 className="text-lg font-bold pt-4 px-5">{blogs.category}</h3>
                     <h2 className="text-2xl font-bold py-1.5 px-5 line-clamp-2 group-hover:text-(--color-primary)">{blogs.title}</h2>
                     <p className="text-md pb-3 px-5">{blogs.date}</p>

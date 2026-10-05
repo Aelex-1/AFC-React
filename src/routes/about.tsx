@@ -25,23 +25,31 @@ export const Route = createFileRoute('/about')({
       { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com/about' },
     ],
+    links: [
+      {
+        rel: "preload",
+        href: "./assets/images/about/about-store.webp",
+        as: "image",
+        fetchpriority: "high",
+      }
+    ]
   }),
   component: RouteComponent,
 })
 
 const missionData = [
   {
-    imageSrc: './assets/images/about/about-chicken.jpg',
+    imageSrc: './assets/images/about/about-chicken.webp',
     title: 'DELICIOUS FOOD',
     subTitle: 'Made to satisfy'
   },
   {
-    imageSrc: './assets/images/about/about-money.jpg',
+    imageSrc: './assets/images/about/about-money.webp',
     title: 'AFFORDABLE PRICE',
     subTitle: 'Made for everyone'
   },
   {
-    imageSrc: './assets/images/about/about-happy.jpg',
+    imageSrc: './assets/images/about/about-happy.webp',
     title: 'GLADNESS IN EVERY MEAL',
     subTitle: 'Served from joyful hearts'
   },
@@ -56,7 +64,14 @@ const Circle = () => {
 const HistoryCard: React.FC<HistoryTypes> = ({ historyYear, historyTitle, historyDescription, historyImage }) => {
   return (
     <div className='node-card flex flex-col w-full gap-y-2 border-gray-200 border shadow-md rounded-lg p-4'>
-      <img className='aspect-ratio-7/4 h-auto object-cover rounded-lg md:hidden' src={historyImage} loading="lazy" alt={historyTitle} />
+      <img
+        src={historyImage}
+        alt={historyTitle}
+        loading="lazy"
+        width={700}
+        height={400}
+        className='aspect-ratio-7/4 h-auto object-cover rounded-lg md:hidden'
+      />
       <div className='font-semibold text-lg'>
         {`${historyYear} ${historyTitle}`}
 
@@ -113,7 +128,14 @@ const History = () => {
               <div className="hidden md:grid grid-cols-[1fr_2rem_1fr] items-center">
                 <div className="pr-6 flex justify-end">
                   {isLeft ? <HistoryCard historyYear={data.historyYear} historyTitle={data.historyTitle} historyDescription={data.historyDescription} historyImage={data.historyImage} /> :
-                    <img className='node-card aspect-ratio-7/4 h-auto border border-gray-200 shadow-md rounded-lg' src={data.historyImage} loading="lazy" alt={data.historyTitle} />}
+                    <img
+                      src={data.historyImage}
+                      alt={data.historyTitle}
+                      width={1200}
+                      height={686}
+                      loading="lazy"
+                      className='node-card aspect-ratio-7/4 h-auto border border-gray-200 shadow-md rounded-lg'
+                    />}
 
                 </div>
                 <div className="relative z-10 flex justify-center">
@@ -139,25 +161,45 @@ const History = () => {
 
 function RouteComponent() {
   return (
-    <main className="min-w">
+    <main className="min-w-0">
       <section className="relative">
-        <img src='./assets/images/about/about-store.webp'
-          className='aspect-ratio-4/1'
-        />
+        <picture>
+          <source
+            media='(max-width: 767px)'
+            srcSet='./assets/images/about/about-store-small.webp'
+            width={420}
+            height={280}
+          />
+          <img
+            src='./assets/images/about/about-store.webp'
+            alt='AFC store front'
+            loading='eager'
+            fetchPriority='high'
+            width={1650}
+            height={413}
+            className='w-full h-auto'
+          />
+        </picture>
+
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center items-center h-fit w-fit bg-(--color-primary) rounded-lg shadow-md">
-          <h2 className="text-white font-bold text-center px-10 py-2">OUR MISSION</h2>
+          <h2 className=" text-white font-bold text-center whitespace-nowrap px-6 py-2 md:px-10">OUR MISSION</h2>
         </div>
       </section>
 
       <section className="page-wrap pt-14">
         <div className='text-center pb-4 md:pb-6'>
-          <h5 className=' text-gray-700'>AFC's mission is to provide:</h5>
+          <span className='text-md md:text-lg font-medium text-gray-700'>AFC's mission is to provide:</span>
         </div>
-        <div className='flex flex-col gap-y-6  md:grid md:grid-cols-3 md:place-items-center'>
+        <div className='flex flex-col gap-y-6  md:grid md:grid-cols-3 md:place-content-start md:content-between'>
           {missionData.map((entry) => (
             <div className='flex flex-col items-center text-center'>
-              <img src={entry.imageSrc} className='aspect-4/5 max-h-60 rounded-lg shadow-md mb-4' />
-              <h4 className='font-extrabold text-(--color-primary)'>{entry.title}</h4>
+              <img
+                src={entry.imageSrc}
+                alt={entry.title}
+                width={320}
+                height={400}
+                className="h-60 w-auto aspect-4/5 object-cover rounded-lg shadow-md mb-4" />
+              <span className='font-extrabold text-xl text-(--color-primary)'>{entry.title}</span>
               <small className='italic text-gray-700'>{entry.subTitle}</small>
             </div>
           ))}
@@ -169,7 +211,7 @@ function RouteComponent() {
       <section className="page-wrap mx-auto pt-8 ">
         <div className='text-center '>
           <h2 className="text-(--color-primary) font-boldpx-10 py-2">OUR HISTORY</h2>
-          <h5 className=' text-gray-700'>AFC's progress and milestones throughout the years</h5>
+          <span className='text-md md:text-lg font-medium text-gray-700'>AFC's progress and milestones throughout the years</span>
         </div>
       </section>
 
@@ -182,10 +224,13 @@ function RouteComponent() {
 
           <div className='split-media '>
             <img
-              className="max-h-120"
               src="./assets/images/about/branch-map.webp"
+              alt="Map of Philippines with AFC locations"
+              width={210}
+              height={333}
               loading="lazy"
-              alt="Map of Philippines with AFC locations" />
+              className="max-h-120 w-auto"
+            />
 
           </div>
 

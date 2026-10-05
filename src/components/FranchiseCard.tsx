@@ -52,9 +52,9 @@ const FranchiseStepsCard = ({ franchiseSteps }: { franchiseSteps: FranchiseStep[
                 <p className="pb-2">{franchiseSteps[activeIndex].step}</p>
                 <p className="text-gray-900">
                     {franchiseSteps[activeIndex].requirements ?
-                        franchiseSteps[activeIndex].requirements.map(entry => (
+                        franchiseSteps[activeIndex].requirements.map((entry, index) => (
                             <ul className="list-disc list-inside space-y-2">
-                                <li>{entry}</li>
+                                <li key={index}>{entry}</li>
                             </ul>
                         ))
                         : null}

@@ -16,12 +16,22 @@ export default function Footer() {
         <footer className=" bg-(--color-footer) mt-auto px-4 pt-8 pb-5">
             <div className="page-wrap flex flex-col items-center justify-between gap-4 text-center md:items-start md:flex-row md:text-left">
                 <Link to="/" className="">
-                    <img className="h-14 w-auto" src="/assets/logo/afc-logo.png" alt="Site Logo" />
+                    <img 
+                    src="./assets/logo/afc-logo.webp" 
+                    alt="Site Logo" 
+                    width={200}
+                    height={200}
+                    className="h-14 w-auto" 
+                    />
                 </Link>
 
                 <div className="flex flex-wrap flex-col items-center md:items-start gap-4 ">
-                    <h5 className=" text-white m-0 font-bold">Follow Us!</h5>
-                    <a href="https://www.facebook.com/arthursfriedchicken" target="_blank" className="text-white hover:text-blue-700">
+                    <span className=" text-lg text-white m-0 font-bold">Follow Us!</span>
+                    <a 
+                    href="https://www.facebook.com/arthursfriedchicken" 
+                    target="_blank" 
+                    aria-label='Facebook Homepage Link'
+                    className="text-white hover:text-blue-700">
                         <FaFacebook className="text-3xl" />
                     </a>
                 </div>
@@ -29,7 +39,7 @@ export default function Footer() {
                 <hr className="page-wrap border-(--color-footer-border) my-2 md:hidden" />
 
                 <div className="flex flex-wrap flex-col items-center md:items-start gap-4 ">
-                    <h5 className=" text-white m-0 font-bold">Quick Links</h5>
+                    <span className=" text-lg text-white m-0 font-bold">Quick Links</span>
                     {navLinks.map((link) => (
                         <Link
                             key={link.to}
@@ -45,7 +55,7 @@ export default function Footer() {
                 <hr className="page-wrap border-(--color-footer-border) my-2 md:hidden" />
 
                 <div className="flex flex-wrap flex-col items-center md:items-start gap-4 ">
-                    <h5 className="text-white m-0 font-bold">Other Links</h5>
+                    <span className=" text-lg text-white m-0 font-bold">Other Links</span>
 
                     <Link
                         to="/policy"
@@ -67,7 +77,7 @@ export default function Footer() {
                 <hr className="page-wrap border-(--color-footer-border) my-2 md:hidden" />
 
                 <div className="flex flex-wrap flex-col items-center md:items-start gap-4 ">
-                    <h5 className=" text-white m-0 font-bold">Deliveries</h5>
+                    <span className=" text-lg text-white m-0 font-bold">Deliveries</span>
                     <p className="text-white">
                         Your favorite AFC meal is <br/> available in <span className="text-green-400 font-bold"> GrabFood </span> soon!
                     </p>

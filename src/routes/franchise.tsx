@@ -162,9 +162,15 @@ function RouteComponent() {
     <main className="min-w-0">
 
       <section>
-        <img src='./assets/images/franchise/franchise-banner.webp'
+        <img
+          src='./assets/images/franchise/franchise-banner.webp'
+          alt='franchise banner'
+          width={1920}
+          height={480}
+          loading='eager'
+          fetchPriority='high'
           className='object-cover aspect-2/1 md:aspect-4/1'
-          alt='franchise banner' />
+        />
       </section>
 
       <section className="bg-(--color-primary)">
@@ -222,6 +228,8 @@ function RouteComponent() {
                 <img
                   src={entry.imgSrc}
                   alt={entry.imgAlt}
+                  width={580}
+                  height={380}
                   loading='lazy'
                   className='rounded-t-lg' />
 

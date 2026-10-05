@@ -21,7 +21,15 @@ export default function Header() {
         <header className="sticky top-0 z-50 border-b border-(--color-border) bg-(--color-header) px-4 backdrop-blur-lg">
             <nav className="page-wrap flex flex-wrap md:justify-between items-center gap-x-3 gap-y-2 py-1 sm:py-2">
                 <Link to="/">
-                    <img className="h-12 w-auto md:h-15" src="/assets/logo/afc-logo.png" alt="Site Logo" />
+                    <img 
+                    src="/assets/logo/afc-logo.webp" 
+                    alt="Site Logo"
+                    width={200} 
+                    height={200}
+                    loading="eager"
+                    fetchPriority="high"
+                    className="h-12 w-auto md:h-15" 
+                    />
                 </Link>
 
                 <div className="hidden w-full flex-wrap items-center gap-x-4 gap-y-1 pb-1 text-md font-semibold md:flex md:w-auto md:flex-nowrap md:pb-0">
