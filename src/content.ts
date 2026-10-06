@@ -296,7 +296,7 @@ export const jobOpeningsData = [
     id: '1',
     title: "Accounting Supervisor",
     branch: "AFC Home",
-    jobBadges: ["full-time", "Php 30,000 a month", "HMO", "Pay-raise", "Car Insurance", "30 days paid leave"],
+    jobBadges: ["Full-time", "Pay-raise"],
     fullDescription: "The Accounting/Finance Supervisor will oversee financial operations, including closing processes, reconciliations, financial reporting, cash flow, tax compliance, and daily finance activities. The role will also support management in financial decision-making, improve financial systems and controls, and maintain accurate and confidential financial records. Candidates should have a bachelor’s degree in accounting, finance, or a related field, with at least 2–3 years of relevant experience. Strong analytical, organizational, communication, and problem-solving skills, along with proficiency in Microsoft Office and accounting software, are required.",
     responsibilities: [
       "Performs the month-end and year-end closing processes. Oversee the timely and proper closing of financial books at the end of each reporting period.",
@@ -314,51 +314,6 @@ export const jobOpeningsData = [
       "Knowledge of accounting principles, financial reporting, and taxation.",
       "Proficient in Microsoft Office applications, particularly Excel."
     ]
-  },
-  {
-    id: '2',
-    title: "Team Leader",
-    branch: "AFC Market",
-    jobBadges: ["full-time", "Php 30,000 a month"],
-    fullDescription: "hehehe",
-    responsibilities: [],
-    qualifications: []
-  },
-  {
-    id: '3',
-    title: "Operations Specialist",
-    branch: "AFC Davao",
-    jobBadges: ["part-time"],
-    fullDescription: "",
-    responsibilities: [],
-    qualifications: []
-  },
-  {
-    id: '4',
-    title: "Team Leader",
-    branch: "AFC Market",
-    jobBadges: ["full-time", "Php 30,000 a month"],
-    fullDescription: "",
-    responsibilities: [],
-    qualifications: []
-  },
-  {
-    id: '5',
-    title: "Operations Specialist",
-    branch: "AFC Davao",
-    jobBadges: ["part-time"],
-    fullDescription: "",
-    responsibilities: [],
-    qualifications: []
-  },
-  {
-    id: '6',
-    title: "Team Leader",
-    branch: "AFC Market",
-    jobBadges: ["full-time", "Php 30,000 a month"],
-    fullDescription: "",
-    responsibilities: [],
-    qualifications: []
   },
   
 ]

@@ -4,26 +4,26 @@ import { blogsData } from '#/content';
 
 export const Route = createFileRoute('/blogs/$blogId')({
     head: () => ({
-    meta: [
-      { title: "AFC | Blogs" },
-      { name: 'description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
+        meta: [
+            { title: "AFC | Blogs" },
+            { name: 'description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
 
-      // Standard Open Graph Meta Tags
-      { property: 'og:site_name', content: "Arthur's Fried Chicken" },
-      { property: 'og:title', content: "AFC Blog Page" },
-      { property: 'og:description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
-      { property: 'og:image', content: './assets/images/seoimage.jpg' },
-      { property: 'og:url', content: 'https://arthursfriedchicken.com/blogs' },
-      { property: 'og:type', content: 'website' },
+            // Standard Open Graph Meta Tags
+            { property: 'og:site_name', content: "Arthur's Fried Chicken" },
+            { property: 'og:title', content: "AFC Blog Page" },
+            { property: 'og:description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
+            { property: 'og:image', content: './assets/images/seoimage.jpg' },
+            { property: 'og:url', content: 'https://arthursfriedchicken.com/blogs' },
+            { property: 'og:type', content: 'website' },
 
-      // Twitter Card Meta Tags
-      { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: 'AFC Blog Page' },
-      { name: 'twitter:description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
-      { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
-      { name: 'twitter:url', content: 'https://arthursfriedchicken.com/blogs' },
-    ],
-  }),
+            // Twitter Card Meta Tags
+            { name: 'twitter:card', content: 'summary_large_image' },
+            { name: 'twitter:title', content: 'AFC Blog Page' },
+            { name: 'twitter:description', content: "Stay updated with the latest AFC news, stories, events, promotions, and updates from Arthur’s Fried Chicken." },
+            { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
+            { name: 'twitter:url', content: 'https://arthursfriedchicken.com/blogs' },
+        ],
+    }),
     component: RouteComponent,
 })
 
@@ -37,6 +37,9 @@ function RouteComponent() {
                     <img
                         src={blogsData[Number(blogId)].image}
                         alt={blogsData[Number(blogId)].alt}
+                        width={1080}
+                        height={720}
+                        fetchPriority="high"
                         className='max-h-[70vh] object-cover rounded-xl shadow-xl border border-gray-400 mx-auto'
                     />
                     <div className=''>

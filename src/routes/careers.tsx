@@ -27,6 +27,14 @@ export const Route = createFileRoute('/careers')({
       { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com/careers' },
     ],
+    links: [
+      {
+        rel: "preload",
+        href: "./assets/images/careers/careers-banner.webp",
+        as: "image",
+        fetchpriority: "high",
+      }
+    ]
   }),
   component: RouteComponent,
 })
@@ -113,7 +121,11 @@ function RouteComponent() {
   return (
     <main className='min-w-0'>
       <section className=''>
-        <img src='./assets/images/careers/careers-banner.webp'
+        <img
+          src='./assets/images/careers/careers-banner.webp'
+          alt='Careers at AFC'
+          width={1440}
+          height={360}
           className='h-60 w-full md:h-auto md:w-full object-cover block'
         />
 
@@ -121,9 +133,9 @@ function RouteComponent() {
           <h1 className='text-(--color-primary) py-8'>
             CAREERS AT AFC
           </h1>
-          <h5 className=' text-gray-700 font-medium'>
+          <span className=' text-gray-700 font-medium text-base'>
             At AFC, we believe that our people are at the heart of every great customer experience. Join a growing homegrown brand where you can learn new skills, take on meaningful challenges, and grow alongside a team that values hard work and dedication. Whether you're starting your career or looking for your next opportunity, there's a place for you in the AFC family.
-          </h5>
+          </span>
           <hr className="my-16 border-gray-200" />
         </div>
       </section>
@@ -158,6 +170,9 @@ function RouteComponent() {
                   <img
                     src={entry.image}
                     alt={entry.title}
+                    width={600}
+                    height={500}
+                    loading='lazy'
                     className='split-media md:rounded-b-none md:rounded-r-lg'
                   />
                 </div>
@@ -168,11 +183,11 @@ function RouteComponent() {
       </section>
 
       <section className='bg-gray-100 pt-16 pb-8'>
-        <div className='page-wrap text-center'>
+        <div className='page-wrap text-center pb-4'>
           <h3 className='pb-4'>AFC CORE VALUES</h3>
-          <h5 className=' text-gray-700 font-medium pb-4'>
+          <span className='text-md md:text-lg font-medium text-gray-700'>
             Our core values guide how we work, how we serve our customers, and how we grow together as one AFC team.
-          </h5>
+          </span>
         </div>
 
         <div className='page-wrap flex flex-col space-y-4 sm:grid sm:grid-cols-2 lg:flex lg:flex-row lg:justify-between '>
@@ -208,7 +223,10 @@ function RouteComponent() {
                 <img
                   src={entry.image}
                   alt={entry.name}
-                  className='rounded-t-lg pb-4'
+                  width={700}
+                  height={544}
+                  loading='lazy'
+                  className='w-full h-auto rounded-t-lg pb-4'
                 />
                 <p className='px-4 pb-4 text-base text-(--color-secondary) font-bold'>"{entry.quote}"</p>
                 <h5 className='px-4 pb-2 text-(--color-primary) font-bold'>{entry.name}</h5>
@@ -226,7 +244,7 @@ function RouteComponent() {
         <h3 className='pb-4 text-center'>JOB OPENINGS</h3>
 
         <div className='page-wrap flex h-[80dvh] md:grid md:grid-cols-[3fr_5fr] md:items-start md:gap-x-8 '>
-          <div className={`flex-col gap-y-4 h-full overflow-scroll ${selectedJob? 'hidden md:flex' : 'flex'}`}>
+          <div className={`flex-col gap-y-4 h-full overflow-scroll ${selectedJob ? 'hidden md:flex' : 'flex'}`}>
             {jobOpeningsData.map((entry) => (
               <div
                 key={entry.id}
@@ -249,16 +267,16 @@ function RouteComponent() {
             ))}
           </div>
 
-          <div className={`${selectedJob? 'block': 'hidden md:flex'}  md:flex-col w-full h-full bg-white border border-gray-300 rounded-xl shadow-xl overflow-scroll`}>
+          <div className={`${selectedJob ? 'block' : 'hidden md:flex'}  md:flex-col w-full h-full bg-white border border-gray-300 rounded-xl shadow-xl overflow-scroll`}>
             {selectedJob ? (
               <>
                 <div className=' p-4'>
                   <div className='flex justify-between'>
-                  <h4 className='group-hover:underline pb-2'>{selectedJob.title}</h4>
-                  <LuX 
-                  className='block md:hidden hover:cursor-pointer hover:text-(--color-secondary)'
-                  onClick={() => setActiveJob(null)}
-                  />
+                    <h4 className='group-hover:underline pb-2'>{selectedJob.title}</h4>
+                    <LuX
+                      className='block md:hidden hover:cursor-pointer hover:text-(--color-secondary)'
+                      onClick={() => setActiveJob(null)}
+                    />
                   </div>
                   <p className='text-base text-gray-600'>{selectedJob.branch}</p>
                   <p className='text-base text-gray-600'>{getAddress(selectedJob.branch)}</p>

@@ -30,6 +30,14 @@ export const Route = createFileRoute('/locations')({
       { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com/locations' },
     ],
+    links: [
+      {
+        rel: "preload",
+        href: "./assets/images/location-page.webp",
+        as: "image",
+        fetchpriority: "high",
+      }
+    ]
   }),
   component: RouteComponent,
 })
@@ -77,9 +85,12 @@ function RouteComponent() {
           <div className='split-media'>
             <img
               src="./assets/images/location-page.webp"
-              loading="lazy"
               alt="Image of AFC Franchise"
-              className='rounded-lg'
+              width={540}
+              height={273}
+              loading="eager"
+              fetchPriority="high"
+              className='w-full h-auto rounded-lg'
             />
           </div>
 

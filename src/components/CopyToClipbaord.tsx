@@ -31,6 +31,7 @@ export function CopyToClipboard({ text }: CopyToClipboardProps) {
 
             <button
                 onClick={handleCopy}
+                arai-label="Copy to clipboard"
             >
                 <FaRegCopy className="mt-1"/>
             </button>

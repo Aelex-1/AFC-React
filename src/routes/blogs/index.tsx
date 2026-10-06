@@ -22,6 +22,14 @@ export const Route = createFileRoute('/blogs/')({
       { name: 'twitter:image', content: './assets/images/seoimage.jpg' },
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com/blogs' },
     ],
+    links: [
+      {
+        rel: "preload",
+        href: `${blogsData[0].image}`,
+        as: "image",
+        fetchpriority: "high",
+      }
+    ]
   }),
   component: RouteComponent,
 })
@@ -35,6 +43,8 @@ const OtherBlogsCard = ({ entry }: { entry: BlogsType }) => (
     <img
       src={entry.image}
       alt={entry.alt}
+      width={1080}
+      height={720}
       loading='lazy'
       className='w-full h-60 object-cover rounded-t-lg' />
     <h3 className="text-lg font-bold pt-4 px-5">{entry.category}</h3>
@@ -60,6 +70,9 @@ function RouteComponent() {
                     <img
                       src={entry.image}
                       alt={entry.alt}
+                      width={1080}
+                      height={720}
+                      fetchPriority="high"
                       className='w-full max-h-80 object-cover rounded-t-lg '
                     />
                     <h3 className="text-lg font-bold pt-4 px-5">{entry.category}</h3>

@@ -13,7 +13,6 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as CareersRouteImport } from './routes/careers'
 import { Route as ContactRouteImport } from './routes/contact'
-import { Route as DesignRouteImport } from './routes/design'
 import { Route as FranchiseRouteImport } from './routes/franchise'
 import { Route as LocationsRouteImport } from './routes/locations'
 import { Route as MenuRouteImport } from './routes/menu'
@@ -39,11 +38,6 @@ const CareersRoute = CareersRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const DesignRoute = DesignRouteImport.update({
-  id: '/design',
-  path: '/design',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FranchiseRoute = FranchiseRouteImport.update({
@@ -82,7 +76,6 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/design': typeof DesignRoute
   '/franchise': typeof FranchiseRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -95,7 +88,6 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/design': typeof DesignRoute
   '/franchise': typeof FranchiseRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -109,7 +101,6 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
-  '/design': typeof DesignRoute
   '/franchise': typeof FranchiseRoute
   '/locations': typeof LocationsRoute
   '/menu': typeof MenuRoute
@@ -124,7 +115,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
-    | '/design'
     | '/franchise'
     | '/locations'
     | '/menu'
@@ -137,7 +127,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
-    | '/design'
     | '/franchise'
     | '/locations'
     | '/menu'
@@ -150,7 +139,6 @@ export interface FileRouteTypes {
     | '/about'
     | '/careers'
     | '/contact'
-    | '/design'
     | '/franchise'
     | '/locations'
     | '/menu'
@@ -164,7 +152,6 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
-  DesignRoute: typeof DesignRoute
   FranchiseRoute: typeof FranchiseRoute
   LocationsRoute: typeof LocationsRoute
   MenuRoute: typeof MenuRoute
@@ -201,13 +188,6 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/design': {
-      id: '/design'
-      path: '/design'
-      fullPath: '/design'
-      preLoaderRoute: typeof DesignRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/franchise': {
@@ -260,7 +240,6 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
-  DesignRoute: DesignRoute,
   FranchiseRoute: FranchiseRoute,
   LocationsRoute: LocationsRoute,
   MenuRoute: MenuRoute,

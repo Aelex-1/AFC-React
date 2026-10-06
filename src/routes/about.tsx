@@ -28,6 +28,12 @@ export const Route = createFileRoute('/about')({
     links: [
       {
         rel: "preload",
+        href: "./assets/images/about/about-store-small.webp",
+        as: "image",
+        fetchpriority: "high",
+      },
+      {
+        rel: "preload",
         href: "./assets/images/about/about-store.webp",
         as: "image",
         fetchpriority: "high",
