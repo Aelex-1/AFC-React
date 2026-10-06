@@ -30,16 +30,11 @@ export const Route = createFileRoute('/')({
       { name: 'twitter:url', content: 'https://arthursfriedchicken.com' },
     ],
     links: [
-
       {
         rel: "preload",
         href: "./assets/images/fc.webp",
         as: "image",
         fetchpriority: "high",
-      },
-      {
-        rel:"stylesheet",
-        href: "./styles.css"
       },
     ],
   }),
@@ -68,16 +63,16 @@ function Home() {
                 <source
                   media='(max-width: 767px)'
                   srcSet={slide.imageMobile}
-                  width={800}
-                  height={533}
+                  width={721}
+                  height={480}
                 />
                 <img
                   src={slide.imageWide}
                   alt={slide.alt}
                   loading='eager'
                   fetchPriority='high'
-                  width={1920}
-                  height={480}
+                  width={1440}
+                  height={360}
                   className='w-full object-cover'
                 />
               </picture>
