@@ -71,8 +71,8 @@ function Home() {
                   alt={slide.alt}
                   loading='eager'
                   fetchPriority='high'
-                  width={1440}
-                  height={360}
+                  width={1700}
+                  height={425}
                   className='w-full object-cover'
                 />
               </picture>
