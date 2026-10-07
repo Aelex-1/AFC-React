@@ -42,8 +42,8 @@ const ContactModal = ({ isOpen, onClose }: ContactProps) => {
                     <div className='grid grid-cols-[1fr_8fr] items-center md:grid-cols-[30px_1fr] md:pl-4'>
                         <MdEmail className='text-(--color-primary) text-2xl' />
                         <div className='flex flex-row gap-x-2'>
-                            <p>afcfranchisingcorp@gmail.com</p>
-                            <CopyToClipboard text='afcfranchisingcorp@gmail.com' />
+                            <p>info@arthursfriedchicken.com</p>
+                            <CopyToClipboard text='info@arthursfriedchicken.com' />
                         </div>
                     </div>
                 </div>
