@@ -182,7 +182,7 @@ function RouteComponent() {
             </p>
           </div>
 
-          <div className='flex flex-col items-center gap-y-8 justify-between md:flex-row md:px-12'>
+          <div className='flex flex-col items-center gap-y-8 justify-between md:flex-row lg:px-10'>
             <div className="flex flex-col w-60 h-80 py-16 px-4 justify-center items-center bg-white rounded-xl ">
               <span className="text-7xl font-bold text-blue-900">OVER</span>
               <CountUp start={2999980} end={3000000} suffix="+" duration={1500} customClass="text-4xl font-bold text-(--color-primary)" />
